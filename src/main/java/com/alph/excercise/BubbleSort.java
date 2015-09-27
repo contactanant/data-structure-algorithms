@@ -20,7 +20,7 @@ public class BubbleSort {
     }
 
     private <T> void swap(T[] array, int i, int j) {
-        if (array.length -1 < (i + 1) || array.length <  (j + 1))
+        if (array.length  < i || array.length <  j || array[i] == array[j])
             return;
         T tmp = array[i];
         array[i] = array[j];

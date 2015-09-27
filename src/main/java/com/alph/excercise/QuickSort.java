@@ -8,13 +8,13 @@ public class QuickSort {
 
     public void quickSort(int[] array, int start, int end) {
         if (start < end) {
-            int pivotIndex = partion(array, start, end);
+            int pivotIndex = partition(array, start, end);
             quickSort(array, start, pivotIndex - 1);
             quickSort(array, pivotIndex + 1, end);
         }
     }
 
-    public int partion(int[] array, int start, int end) {
+    public int partition(int[] array, int start, int end) {
         int pivot = array[end];
         int pIndex = start;
 
@@ -29,7 +29,7 @@ public class QuickSort {
     }
 
     private void swap(int[] array, int i, int j) {
-        if (array.length -1 < (i + 1) || array.length <  (j + 1) || array[i] == array[j])
+        if (array.length  < i || array.length <  j || array[i] == array[j])
             return;
         int tmp = array[i];
         array[i] = array[j];

@@ -10,7 +10,7 @@ class QuickSortTest extends spock.lang.Specification {
         int[] intArray = [5, 15, 10, 3, 2, 1, 4]
 
         when:
-        def pIndex = quickSort.partion(intArray, 0, 6)
+        def pIndex = quickSort.partition(intArray, 0, 6)
 
         then:
         pIndex == 3
