@@ -1,4 +1,4 @@
-package com.alph.excercise;
+package com.alph.excercise.sort;
 
 public class QuickSort {
 

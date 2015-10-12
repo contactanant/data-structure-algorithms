@@ -1,4 +1,6 @@
-package com.alph.excercise
+package com.alph.excercise.sort
+
+import com.alph.excercise.sort.MergeSort
 
 class MergeSortTest extends spock.lang.Specification {
 

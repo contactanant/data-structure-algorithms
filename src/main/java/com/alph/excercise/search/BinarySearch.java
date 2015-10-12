@@ -1,4 +1,4 @@
-package com.alph.excercise;
+package com.alph.excercise.search;
 
 public class BinarySearch<T> {
 

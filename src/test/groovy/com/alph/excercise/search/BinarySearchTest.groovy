@@ -1,5 +1,6 @@
-package com.alph.excercise
+package com.alph.excercise.search
 
+import com.alph.excercise.search.BinarySearch
 import spock.lang.Specification
 
 class BinarySearchTest extends Specification {
