@@ -220,12 +220,23 @@ public class SimpleHashMap<K, V> implements Map<K, V>, Cloneable, Serializable {
     @Override
     public V remove(Object key) {
         if (data != null && data.length > 0) {
-            int hash = hash(key);
-            Node<K, V> node = data[hash];
+            int i;
+            Node<K, V> node = data[(i = (hash(key) & (data.length -1)))];
             if (node != null) {
-                data[hash] = null;
-                --size;
-                return node.getValue();
+                if (Objects.equals(node.getKey(), key)) {
+                    data[i] = node.next;
+                    size--;
+                    return node.getValue();
+                }
+
+                Node<K,V> prev;
+                while ((prev=node) != null && (node = node.next) != null){
+                    if (Objects.equals(node.getKey(), key)) {
+                        prev.next = node.next;
+                        size--;
+                        return node.getValue();
+                    }
+                }
             }
         }
         return null;

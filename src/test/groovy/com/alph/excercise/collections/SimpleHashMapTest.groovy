@@ -50,13 +50,26 @@ class SimpleHashMapTest extends Specification {
         !simpleHashMap.containsKey(1)
     }
 
-    def "should remove element"() {
-        simpleHashMap.put(1, "value1")
+    def "should remove second element from same hash and update next link accordingly"() {
+        simpleHashMap.put(101, "value1")
+        simpleHashMap.put(21, "value2")
+        simpleHashMap.put(5, "value3")
 
         expect:
-        simpleHashMap.remove(1) == "value1"
-        simpleHashMap.isEmpty()
-        simpleHashMap.get(1) == null
+        simpleHashMap.remove(21) == "value2"
+        simpleHashMap.size() == 2
+        simpleHashMap.get(101) == "value1"
+        simpleHashMap.get(5) == "value3"
+    }
+
+    def "should remove first element from same hash"() {
+        simpleHashMap.put(101, "value1")
+        simpleHashMap.put(21, "value2")
+
+        expect:
+        simpleHashMap.remove(101) == "value1"
+        simpleHashMap.size() == 1
+        simpleHashMap.get(21) == "value2"
     }
 
     def "put all values of one map into another"() {
